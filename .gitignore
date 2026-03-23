@@ -52,3 +52,10 @@ CodeCoverage/
 *.VisualState.xml
 TestResult.xml
 nunit-*.xml
+/Gradebook/UnitTest
+/Gradebook/Gradebook.Core
+/Gradebook/.vs/ProjectEvaluation
+/Gradebook/.vs/Gradebook/v17
+/Gradebook
+/.vs
+/WarCardGame/.vs
