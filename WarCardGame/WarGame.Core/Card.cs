@@ -19,7 +19,10 @@ namespace WarGame.Core
             Suit = suit;
             Rank = rank;
         }
-
+        /// <summary>
+        /// This will tell what type of Rank and Suit the players have shown
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
             return $"{Rank} of {Suit}";

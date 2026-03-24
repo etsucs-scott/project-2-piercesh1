@@ -6,8 +6,11 @@ using System.Threading.Tasks;
 
 namespace WarGame.Core
 {
-    public class Rank
+    /// <summary>
+    /// This shows the ranks and what the player has shown
+    /// </summary>
+    public enum Rank
     {
-        
+        Two = 2, Three, Four, Five, Six, Seven, Eight, Nine, Ten, Jack, Queen, King, Ace
     }
 }

@@ -6,8 +6,11 @@ using System.Threading.Tasks;
 
 namespace WarGame.Core
 {
-    public class Suit
+    /// <summary>
+    /// This shows the suits and will tell what type of suit the player has.
+    /// </summary>
+    public enum Suit
     {
-        
+        Clubs, Diamonds, Hearts, Spades
     }
 }

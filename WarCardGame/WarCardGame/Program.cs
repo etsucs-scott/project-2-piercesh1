@@ -3,23 +3,28 @@ using System.Collections.Generic;
 
 namespace WarCardGame 
 {
-    public enum Suit { Hearts, Diamonds, Clubs, Spades }
-    public enum Rank { Two = 2, Three, Four, Five, Six, Seven, Eight, Nine, Ten, Jack, Queen, King, Ace }
+    
     class Program
     {
         static void Main(string[] args)
         {
             Deck deck = new Deck();
-
+            ///
+            /// I have chosen three players to play the game and can add up to four players.
+            ///
             var playerHands = new Dictionary<string, Hand>
             {
-                {"Player1", "new Hand()" },
-                {"Player2", "new Hand()" }
+                {"Player1", new Hand() },
+                {"Player2", new Hand() },
+                {"Player3", new Hand() }
             };
 
             var players = new List<string>(playerHands.Keys);
             int currentPlayerIndex = 0;
 
+            ///
+            /// This will let the player gain the cards after they have one the round
+            ///
             while (deck.HasCards()) 
             {
                 var player = players[currentPlayerIndex];
@@ -28,7 +33,10 @@ namespace WarCardGame
 
                 currentPlayerIndex = (currentPlayerIndex + 1) % players.Count;
             }
-
+            ///
+            /// This will keep count on how many rounds its been and the max has been set to 10000
+            /// It will also make sure that the rounds keep going until it hits 10000 unless a player loses the game.
+            ///
             int round = 0;
             const int MAX_ROUNDS = 10000;
             while (round < MAX_ROUNDS)
@@ -37,13 +45,18 @@ namespace WarCardGame
 
                 foreach (var player in players)
                 {
+                    ///
+                    /// Once a player has reached 0, the game will end.
+                    ///
                     if (playerHands[player].Count == 0)
                     {
                         Console.WriteLine($"{player} has no cards left. Game over.");
                         return;
                     }
                 }
-
+                ///
+                /// The pot here is to keep track on what cards have been shown and who placed them.
+                /// 
                 var playerCards = new Dictionary<string, Card>();
                 var pot = new List<Card>();
 
@@ -55,7 +68,9 @@ namespace WarCardGame
 
                     Console.WriteLine($"{player} plays {card}");
                 }
-
+                ///
+                ///This is to tell who one the round and who has the highest cards
+                ///
                 string winner = null;
                 Card highestCard = null;
 
@@ -67,7 +82,9 @@ namespace WarCardGame
                         winner = kvp.Key;
                     }
                 }
-
+                ///
+                ///This will make sure to keep count on how many cards there are and if there is a tie
+                ///
                 bool isTie = false;
                 int sameCount = 0;
                 foreach (var card in playerCards.Values)
@@ -75,7 +92,10 @@ namespace WarCardGame
                     if (card.Rank == highestCard.Rank)
                         sameCount++;
                 }
-
+                ///
+                ///Here this will either continue a round if there is no tie.
+                ///Or if the players do end up in a tie they will be forced to go to war!
+                ///
                 if (sameCount > 1)
                 {
                     isTie = true;
@@ -91,19 +111,28 @@ namespace WarCardGame
                         }
                     }
                 }
+                ///
+                /// If there is no tie then player with the highest cards wins the round and takes the pot.
+                ///
                 else
                 {
-                    Console.WriteLine($"{winner} winds the round and takes {pot.Count} cards");
+                    Console.WriteLine($"{winner} wins the round and takes {pot.Count} cards");
                     foreach (var card in pot)
                     {
                         playerHands[winner].AddCard(card);
                     }
                 }
+                ///
+                /// This will show up when a round has been complete and what round the players are on.
+                ///
 
                 Console.WriteLine($"Round {round} complete\n");
 
             }
-            Console.WriteLine("Reached max round limit(10000). game is a draw.");
+            ///
+            /// This will only show if the max rounds have been met.
+            ///
+            Console.WriteLine("Reached max round limit 10000. game is a draw.");
 
         }
     }
