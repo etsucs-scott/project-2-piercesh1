@@ -1,6 +1,6 @@
 ## WarCardGame This project is to let you play a card game called War and was made in C#. Here the players must win the most rounds and wars with a 52 card deck up and accumulate all cards to win.
 
-##Features I have put in three players that will be in the game. There should be 52 cards that will be in the deck. Here the players must not lose all there cards. If any of the players end up in a tie, then they will enter a war. The player that has 0 cards loses the game. Also if the game keeps going up to 10000 rounds, so if it reaches up to 10000 rounds then the game ends in a tie.
+##Features You will be capable of choosing how many players you want in the game. There should be 52 cards that will be in the deck. Here the players must not lose all there cards. If any of the players end up in a tie, then they will enter a war. The player that has 0 cards loses the game. Also if the game keeps going up to 10000 rounds, so if it reaches up to 10000 rounds then the game ends in a tie.
 
 ##Build Instructions requires NET.SDK
 
