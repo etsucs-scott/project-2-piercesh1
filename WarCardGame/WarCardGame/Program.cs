@@ -8,16 +8,28 @@ namespace WarCardGame
     {
         static void Main(string[] args)
         {
+            
             Deck deck = new Deck();
+            
             ///
-            /// I have chosen three players to play the game and can add up to four players.
+            /// This will allow you to choose the amount of players to play in the game
             ///
-            var playerHands = new Dictionary<string, Hand>
+            Console.WriteLine("How many players?: ");
+            string input = Console.ReadLine();
+            int numplayer = int.Parse(input);
+            
+            var playerHands = new Dictionary<string, Hand>();
+
+             ///
+             ///This is what will make it capable of adding more players.
+             ///
+            for (int i = 0; i < numplayer; i++)
             {
-                {"Player1", new Hand() },
-                {"Player2", new Hand() },
-                {"Player3", new Hand() }
-            };
+                playerHands[$"player {i + 1}"] = new Hand();
+            }
+
+
+            
 
             var players = new List<string>(playerHands.Keys);
             int currentPlayerIndex = 0;
@@ -60,6 +72,9 @@ namespace WarCardGame
                 var playerCards = new Dictionary<string, Card>();
                 var pot = new List<Card>();
 
+                ///
+                ///This here will tell you which player put down what card and add the card to the pot.
+                ///
                 foreach (var player in players)
                 {
                     Card card = playerHands[player].PlayCard();
@@ -73,6 +88,11 @@ namespace WarCardGame
                 ///
                 string winner = null;
                 Card highestCard = null;
+
+                foreach (var player in players)
+                {
+
+                }
 
                 foreach (var kvp in playerCards)
                 {
@@ -109,8 +129,10 @@ namespace WarCardGame
                         {
                             pot.Add(playerHands[player].PlayCard());
                         }
+                        
                     }
                 }
+
                 ///
                 /// If there is no tie then player with the highest cards wins the round and takes the pot.
                 ///
@@ -125,10 +147,11 @@ namespace WarCardGame
                 ///
                 /// This will show up when a round has been complete and what round the players are on.
                 ///
-
                 Console.WriteLine($"Round {round} complete\n");
 
             }
+            if (players.Count == 1)
+                Console.WriteLine($"\n{players[0]} wins the game!");
             ///
             /// This will only show if the max rounds have been met.
             ///

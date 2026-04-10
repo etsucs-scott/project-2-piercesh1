@@ -14,6 +14,11 @@ namespace WarGame.Core
         public Suit Suit { get; set; }
         public Rank Rank { get; set; }
 
+        /// <summary>
+        /// This here is going to help also show which cards has the Suit and Rank.
+        /// </summary>
+        /// <param name="suit"></param>
+        /// <param name="rank"></param>
         public Card(Suit suit, Rank rank)
         {
             Suit = suit;

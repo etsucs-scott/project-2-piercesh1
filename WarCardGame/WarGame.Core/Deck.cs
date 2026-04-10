@@ -20,7 +20,13 @@ namespace WarGame.Core
         public Deck()
         {
             cards = new Stack<Card>();
+            ///
+            ///This here will be capable of holding both Suit and Rank which will allow them to show which one is bigger.
+            ///
             Initialize();
+            ///
+            ///This will help shuffle the cards for each player
+            ///
             Shuffle();
         }
         /// <summary>
@@ -28,6 +34,9 @@ namespace WarGame.Core
         /// </summary>
         private void Initialize()
         {
+            ///
+            ///This should show which suits and ranks are more bigger.
+            ///
             foreach (Suit suit in Enum.GetValues(typeof(Suit)))
             {
                 foreach (Rank rank in Enum.GetValues(typeof(Rank)))
@@ -75,5 +84,7 @@ namespace WarGame.Core
         {
             return cards.Pop();
         }
+
+
     }
 }

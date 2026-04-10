@@ -30,6 +30,7 @@ namespace WarGame.Core
         {
             return Cards.Dequeue();
         }
+
         /// <summary>
         /// This keeps count of the cards
         /// </summary>
