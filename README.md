@@ -6,9 +6,9 @@
 
 ##Run Instructions Run the game with: dotnet run
 
-##Runtime all you need to do is press the run button and watch as the players try to win the fight. There are 3 players set in the code and who ever loses all there cards loses the game.
+##Runtime all you need to do is press the run button and watch as the players try to win the fight. The user will choose how many players there can be in a game. If a player ends up in a tie it will be time for war and will have to see which one will get the cards to end the war. The game should end when only one player stand or if the round max has been reached
 
-##Win Condition the player who has the highest card wins the round and will gain the cards in the pot.
+##Win Condition the player who has the highest card wins the round and will gain the cards in the pot. They must be the last one in the game to win before the round cap has been reached.
 
 ##Lose condition The player who has 0 cards will lose the game and it will be over or if the rounds reach 10000, then the game will end in a tie.
 
